@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Prova FP3 - Dia 14/09/22 </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header><h2>Países</h2></ion-header>
+  <ion-button
+    color="tertiary"
+    shape="round"
+    (click)="getPaisesNaoIndependentes()"
+    class="primary"
+    >Países Não Independentes</ion-button
+  >
+  <ion-button color="tertiary" shape="round" (click)="getCountries()"
+    >Todos</ion-button
+  >
+  <div class="container">
+    <ion-item *ngFor="let country of countries; index  as i">
+      <ion-avatar slot="start">
+        <img [src]="country.flags.png" />
+      </ion-avatar>
+      <ion-label>
+        {{country.name.common }}
+        <h2>{{country.translations.por.official}}</h2>
+        <h3>População: {{country.population}} habitantes</h3>
+        <h3>Continente: {{country.continents}}</h3>
+        <p>Capital: {{country.capital}}</p>
+      </ion-label>
+    </ion-item>
+  </div>
+</ion-content>
